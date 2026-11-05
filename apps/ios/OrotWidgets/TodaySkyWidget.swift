@@ -142,7 +142,7 @@ private struct MansionGlyph: View {
         } else {
             Circle()
                 .strokeBorder(OrotColor.starSlotEmpty, style: StrokeStyle(lineWidth: 1, dash: [1.5, 1.5]))
-                .frame(width: 7, height: 7)
+                .frame(width: 8, height: 8)
         }
     }
 
@@ -153,7 +153,7 @@ private struct MansionGlyph: View {
               let minY = raw.map(\.y).min(), let maxY = raw.map(\.y).max() else { return [] }
         let inset: CGFloat = 8
         let w = max(maxX - minX, 1), h = max(maxY - minY, 1)
-        let scale = min((size.width - inset * 2) / w, (size.height - inset * 2) / h, 2.2)
+        let scale = min((size.width - inset * 2) / w, (size.height - inset * 2) / h, 3.2)
         let ox = (size.width - w * scale) / 2, oy = (size.height - h * scale) / 2
         return raw.map { CGPoint(x: ox + ($0.x - minX) * scale, y: oy + ($0.y - minY) * scale) }
     }
