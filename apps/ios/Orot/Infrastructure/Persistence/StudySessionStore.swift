@@ -66,7 +66,10 @@ final class StudySessionStore: ObservableObject {
     //   → 데이터 변경은 반드시 saveSession(), deleteSession() 등의 메서드를 통해서만 가능
     //   → 이렇게 하면 데이터 무결성을 보장할 수 있음 (캡슐화의 핵심)
     @Published private(set) var sessions: [StudySession] = [] {
-        didSet { sky = SkyProgress(sessions: sessions) }
+        didSet {
+            sky = SkyProgress(sessions: sessions)
+            publishSkySnapshot()
+        }
     }
     /// 28수 진행도 — 세션 목록이 바뀔 때 한 번만 다시 계산합니다.
     @Published private(set) var sky = SkyProgress.empty
