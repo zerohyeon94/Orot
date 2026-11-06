@@ -130,13 +130,16 @@ struct SessionClock: View {
                 .tracking(-size * 0.02)
                 .foregroundStyle(color)
                 .contentTransition(.numericText(countsDown: !overtime))
+            Text("분")
+                .font(OrotFont.extraLight(size * 0.3))
+                .foregroundStyle(color.opacity(0.7))
         }
         .fixedSize()
         // 시안의 line-height 0.9 — 한글 폰트의 기본 줄 높이는 숫자에 비해 너무 큽니다.
         .frame(height: size * 0.9)
         .animation(.easeInOut(duration: 0.4), value: text)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel(overtime ? "오버타임 \(text)" : "남은 시간 \(text)")
+        .accessibilityLabel(overtime ? "오버타임 \(text)분" : "남은 시간 \(text)분")
     }
 }
 

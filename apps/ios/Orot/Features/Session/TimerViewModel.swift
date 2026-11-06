@@ -135,8 +135,9 @@ final class TimerViewModel: ObservableObject {
         targetDuration > 0 ? min(1, (isDetectionEnabled ? netFocusTime : elapsedTime) / targetDuration) : 0
     }
 
-    var clockText: String { Self.clock(isOvertime ? overtime : remainingTime) }
-    var restClockText: String { Self.clock(restRemaining) }
+    /// 세션 화면의 큰 시계는 초 없이 분만 보여 줍니다. 남은 1초까지 "1"로 셉니다.
+    var clockText: String { Self.minutes(isOvertime ? overtime : remainingTime) }
+    var restClockText: String { Self.minutes(restRemaining) }
     var targetMinutes: Int { Int(targetDuration / 60) }
 
     /// 다음 휴식이 긴 휴식인지
@@ -517,6 +518,10 @@ final class TimerViewModel: ObservableObject {
     }
 
     // MARK: - Helpers
+    static func minutes(_ time: TimeInterval) -> String {
+        String(Int((max(0, time) / 60).rounded(.up)))
+    }
+
     static func clock(_ time: TimeInterval) -> String {
         let t = Int(time)
         return String(format: "%02d:%02d", t / 60, t % 60)
