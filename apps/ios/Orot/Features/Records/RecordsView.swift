@@ -220,12 +220,19 @@ private struct SubjectBreakdown: View {
     let sessions: [StudySession]
     private static let colors = [OrotColor.accent, Color(hex: 0x7F735E), Color(hex: 0x4F473A), Color(hex: 0x86A4B3), Color(hex: 0x6B7079)]
 
+    private var groups: [(name: String, pure: TimeInterval)] {
+        let bySubject: [String: [StudySession]] = Dictionary(grouping: sessions) { (s: StudySession) -> String in
+            s.studyPlanTitle ?? "이름 없는 대상"
+        }
+        let all: [(name: String, pure: TimeInterval)] = bySubject.map { (key: String, value: [StudySession]) in
+            (name: key, pure: value.reduce(0) { $0 + $1.netFocusTime })
+        }
+        return all.filter { $0.pure > 0 }.sorted { $0.pure > $1.pure }
+    }
+
     var body: some View {
-        let groups = Dictionary(grouping: sessions) { $0.studyPlanTitle ?? "이름 없는 대상" }
-            .map { (name: $0.key, pure: $0.value.reduce(0) { $0 + $1.netFocusTime }) }
-            .filter { $0.pure > 0 }
-            .sorted { $0.pure > $1.pure }
-        let total = max(1, groups.reduce(0) { $0 + $1.pure })
+        let groups = self.groups
+        let total: TimeInterval = max(1, groups.reduce(0) { $0 + $1.pure })
         if !groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
                 Text("집중 대상").font(OrotFont.body).foregroundStyle(OrotColor.textPrimary)
