@@ -19,7 +19,7 @@ Kaggle Drowsiness Dataset 활용:
 
 import os
 from pathlib import Path
-from typing import Tuple, List, Optional, Any
+from typing import Tuple, List, Optional, Any, Union
 
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
@@ -74,11 +74,11 @@ class DrowsinessDataset(Dataset):
 
     def __init__(
         self,
-        root_dir: str,
+        root_dir: Union[str, List[str]],
         transform: Optional[Any] = None,
         class_map: Optional[dict] = None,
     ):
-        self.root_dir = Path(root_dir)
+        self.root_dirs = [Path(r) for r in ([root_dir] if isinstance(root_dir, str) else root_dir)]
         self.transform = transform
         self.class_map = class_map or KAGGLE_CLASS_MAP
         self.idx_to_class = IDX_TO_CLASS
@@ -95,16 +95,17 @@ class DrowsinessDataset(Dataset):
         지원 확장자: .jpg, .JPG, .png, .PNG, .jpeg, .JPEG
         존재하지 않는 폴더는 경고 출력 후 건너뜁니다.
         """
-        for folder_name, label in self.class_map.items():
-            folder_dir = self.root_dir / folder_name
-            if not folder_dir.exists():
-                print(f"Warning: {folder_dir} not found, skipping")
-                continue
+        for root_dir in self.root_dirs:
+            for folder_name, label in self.class_map.items():
+                folder_dir = root_dir / folder_name
+                if not folder_dir.exists():
+                    print(f"Warning: {folder_dir} not found, skipping")
+                    continue
 
-            # 대소문자 구분 없이 이미지 확장자 검색
-            for ext in ('*.[jJ][pP][gG]', '*.[pP][nN][gG]', '*.[jJ][pP][eE][gG]'):
-                for img_path in folder_dir.glob(ext):
-                    self.samples.append((img_path, label))
+                # 대소문자 구분 없이 이미지 확장자 검색
+                for ext in ('*.[jJ][pP][gG]', '*.[pP][nN][gG]', '*.[jJ][pP][eE][gG]'):
+                    for img_path in folder_dir.glob(ext):
+                        self.samples.append((img_path, label))
 
         # 클래스별 샘플 수 출력 (데이터 불균형 확인용)
         counts = {}
@@ -112,7 +113,7 @@ class DrowsinessDataset(Dataset):
             name = self.idx_to_class[label]
             counts[name] = counts.get(name, 0) + 1
 
-        print(f"Loaded {len(self.samples)} samples from {self.root_dir}")
+        print(f"Loaded {len(self.samples)} samples from {', '.join(map(str, self.root_dirs))}")
         for name, count in sorted(counts.items()):
             print(f"  - {name}: {count}")
 
@@ -249,7 +250,7 @@ def get_val_transforms(image_size: int = 224):
 # ================================================================
 
 def create_dataloaders(
-    data_dir: str,
+    data_dir: Union[str, List[str]],
     val_split: float = 0.2,
     batch_size: int = 32,
     num_workers: int = 4,

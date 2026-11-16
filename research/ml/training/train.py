@@ -308,8 +308,8 @@ def main():
     parser = argparse.ArgumentParser(description='FocusSense Model Training')
 
     # ── 데이터 관련 인자 ─────────────────────────────────────────
-    parser.add_argument('--data_dir', type=str, required=True,
-                        help='Data directory (with Open/Closed/yawn/no_yawn folders)')
+    parser.add_argument('--data_dir', type=str, nargs='+', required=True,
+                        help='One or more data directories (with Open/Closed/yawn/no_yawn folders)')
     parser.add_argument('--val_split', type=float, default=0.2,
                         help='Validation split ratio (default: 0.2)')
 
