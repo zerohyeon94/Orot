@@ -267,7 +267,7 @@ struct SessionFocusContent: View {
     }
 
     private func openDebug() {
-        #if DEBUG
+        #if DEBUG || DATA_COLLECTION
         viewModel.showDebugView = true
         #endif
     }

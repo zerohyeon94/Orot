@@ -1098,6 +1098,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.focussense.app;
 				PRODUCT_MODULE_NAME = FocusSense;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DATA_COLLECTION";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1122,6 +1123,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.focussense.app;
 				PRODUCT_MODULE_NAME = FocusSense;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DATA_COLLECTION";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

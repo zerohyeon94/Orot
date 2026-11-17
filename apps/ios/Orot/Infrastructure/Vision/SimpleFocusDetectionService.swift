@@ -117,7 +117,7 @@ final class SimpleFocusDetectionService: ObservableObject, FocusDetectionService
     // MARK: - Calibration
     var calibrationService: CalibrationService?
 
-    #if DEBUG
+    #if DATA_COLLECTION
     // MARK: - Training Data Collection
     var trainingCollector: TrainingDataCollector?
     #endif
@@ -266,7 +266,7 @@ final class SimpleFocusDetectionService: ObservableObject, FocusDetectionService
             coreMLDrowsyProb = runCoreMLInference(pixelBuffer: pixelBuffer, faceRect: face.boundingBox, model: model)
         }
 
-        #if DEBUG
+        #if DATA_COLLECTION
         // processFrame은 TimerViewModel에서 MainActor로 호출됩니다
         if let collector = trainingCollector {
             MainActor.assumeIsolated {
