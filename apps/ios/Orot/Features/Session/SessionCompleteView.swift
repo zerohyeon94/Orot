@@ -122,6 +122,15 @@ struct SessionCompleteView: View {
     }
 
     private var actions: some View {
+        VStack(spacing: 8) {
+            actionButtons
+            #if DATA_COLLECTION
+            CaptureReviewButton(collector: viewModel.trainingCollector)
+            #endif
+        }
+    }
+
+    private var actionButtons: some View {
         HStack(spacing: 10) {
             Button(viewModel.nextRestIsLong ? "\(Int(viewModel.longRestDuration / 60))분 쉬기" : "\(Int(viewModel.shortRestDuration / 60))분 쉬기") {
                 viewModel.startRest()
