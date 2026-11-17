@@ -70,6 +70,7 @@
 		CFBAC3F62F62A7FD00C3D2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBAC3F42F62A7FD00C3D2E2 /* Color.swift */; };
 		CFBAC3F82F62C43E00C3D2E2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBAC3F72F62C43A00C3D2E2 /* Date.swift */; };
 		CFDC218A2F6F4634004DD175 /* AIAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC21892F6F4634004DD175 /* AIAnalysisView.swift */; };
+		CFDC21AB2F6F4634004DD175 /* TrainingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDC21AA2F6F4634004DD175 /* TrainingDataCollector.swift */; };
 		D2251BBECE15BAA5B5F40583 /* FocusEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5323485BF0EAE5C3BF7198C /* FocusEmptyStateView.swift */; };
 		D6C25F1E3387DE724E0111C5 /* SkyProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6223DE454EE36B94D5A652D /* SkyProgress.swift */; };
 		D928C32842597D9E52631E2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E399F548A5E3ED1829E26BAE /* ContentView.swift */; };
@@ -187,6 +188,7 @@
 		CFBAC3F42F62A7FD00C3D2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CFBAC3F72F62C43A00C3D2E2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CFDC21892F6F4634004DD175 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
+		CFDC21AA2F6F4634004DD175 /* TrainingDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDataCollector.swift; sourceTree = "<group>"; };
 		D0CE06A9133E18EE818C0D9F /* SettingsRows.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsRows.swift; sourceTree = "<group>"; };
 		D4C00A6156F76A38941DF075 /* Orot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orot.entitlements; sourceTree = "<group>"; };
 		D50388A15FE4246C1A2ACE81 /* CameraPermissionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraPermissionView.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				CFDC21892F6F4634004DD175 /* AIAnalysisView.swift */,
+				CFDC21AA2F6F4634004DD175 /* TrainingDataCollector.swift */,
 			);
 			name = Diagnostics;
 			path = Diagnostics;
@@ -882,6 +885,7 @@
 				1226FE82B1E0217B4E8BD1E1 /* TimerViewModel.swift in Sources */,
 				AA1B2C3D4E5F6A7B8C9D0E1F /* StudySessionStore.swift in Sources */,
 				CFDC218A2F6F4634004DD175 /* AIAnalysisView.swift in Sources */,
+				CFDC21AB2F6F4634004DD175 /* TrainingDataCollector.swift in Sources */,
 				CFBAC3F62F62A7FD00C3D2E2 /* Color.swift in Sources */,
 				A1B2C3D4E5F60001A0000005 /* SplashView.swift in Sources */,
 				B1C2D3E4F5060001B0000001 /* StudyPlan.swift in Sources */,

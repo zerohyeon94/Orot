@@ -149,6 +149,10 @@ final class TimerViewModel: ObservableObject {
     private var backgroundedAt: Date?
     private var thermalBannerTask: Task<Void, Never>?
 
+    #if DEBUG
+    let trainingCollector = TrainingDataCollector()
+    #endif
+
     // MARK: - Initialization
     init() {
         self.cameraService = CameraService()
@@ -157,6 +161,9 @@ final class TimerViewModel: ObservableObject {
         self.subjectStore = FocusSubjectStore()
 
         focusService.calibrationService = calibrationService
+        #if DEBUG
+        focusService.trainingCollector = trainingCollector
+        #endif
         cameraService.delegate = self
         setupBindings()
         liveActivity.endLeftovers()
