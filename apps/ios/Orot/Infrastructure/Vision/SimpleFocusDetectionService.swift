@@ -116,6 +116,11 @@ final class SimpleFocusDetectionService: ObservableObject, FocusDetectionService
     
     // MARK: - Calibration
     var calibrationService: CalibrationService?
+
+    #if DEBUG
+    // MARK: - Training Data Collection
+    var trainingCollector: TrainingDataCollector?
+    #endif
     
     // MARK: - EAR Tracking
     private var earHistory: [Double] = []
@@ -260,6 +265,15 @@ final class SimpleFocusDetectionService: ObservableObject, FocusDetectionService
             updateDebug(step: "3️⃣ CoreML 추론 중...")
             coreMLDrowsyProb = runCoreMLInference(pixelBuffer: pixelBuffer, faceRect: face.boundingBox, model: model)
         }
+
+        #if DEBUG
+        // processFrame은 TimerViewModel에서 MainActor로 호출됩니다
+        if let collector = trainingCollector {
+            MainActor.assumeIsolated {
+                collector.save(pixelBuffer: pixelBuffer, faceRect: face.boundingBox)
+            }
+        }
+        #endif
         
         // MARK: Step 4 - 하이브리드 점수 계산
         let combinedDrowsyScore: Double

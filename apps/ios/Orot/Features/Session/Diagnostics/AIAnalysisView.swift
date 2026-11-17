@@ -95,6 +95,13 @@ struct AIAnalysisView: View {
                 )
 
                 StatusRow(debugInfo: viewModel.focusService.debugInfo)
+
+                #if DEBUG
+                DataCollectionPanel(
+                    collector: viewModel.trainingCollector,
+                    cameraService: viewModel.cameraService
+                )
+                #endif
             }
             .padding()
         }

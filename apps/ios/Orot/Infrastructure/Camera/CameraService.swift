@@ -56,7 +56,7 @@ final class CameraService: NSObject, ObservableObject {
     /// 마지막으로 프레임을 처리한 시간
     private var lastFrameTime: CFAbsoluteTime = 0
     /// 프레임 처리 간격 (초) - 기본 1초에 1번, 캘리브레이션 시 동적 변경 가능
-    private var frameInterval: CFAbsoluteTime = 1.0
+    var frameInterval: CFAbsoluteTime = 1.0
     
     // MARK: - Initialization
     override init() {

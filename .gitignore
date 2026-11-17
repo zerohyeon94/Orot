@@ -54,3 +54,5 @@ Carthage/Build/
 
 # Existing ML data and artifacts remain tracked during this structural migration.
 # Their storage policy will be handled in a separate change.
+# 앱 수집 모드로 모은 실제 얼굴 사진은 커밋하지 않음
+research/ml/data/collected/
