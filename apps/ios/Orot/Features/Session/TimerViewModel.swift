@@ -149,7 +149,7 @@ final class TimerViewModel: ObservableObject {
     private var backgroundedAt: Date?
     private var thermalBannerTask: Task<Void, Never>?
 
-    #if DEBUG
+    #if DATA_COLLECTION
     let trainingCollector = TrainingDataCollector()
     #endif
 
@@ -161,7 +161,7 @@ final class TimerViewModel: ObservableObject {
         self.subjectStore = FocusSubjectStore()
 
         focusService.calibrationService = calibrationService
-        #if DEBUG
+        #if DATA_COLLECTION
         focusService.trainingCollector = trainingCollector
         #endif
         cameraService.delegate = self

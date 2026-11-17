@@ -2,12 +2,15 @@
 //  TrainingDataCollector.swift
 //  Orot
 //
-//  DEBUG 전용 학습 데이터 수집 — CoreML 모델이 실제로 받는 얼굴 크롭을
+//  출시 전 테스트용 학습 데이터 수집 — CoreML 모델이 실제로 받는 얼굴 크롭을
 //  Documents/Collected/<수집 대상>/<라벨>/ 에 JPEG로 저장합니다.
 //  폴더 구조는 research/ml 학습 스크립트의 --data_dir 형식과 같습니다.
 //
+//  ⚠️ 앱 타깃의 SWIFT_ACTIVE_COMPILATION_CONDITIONS에 DATA_COLLECTION이 있을 때만 포함됩니다.
+//     App Store 출시 전에 Debug/Release 설정에서 DATA_COLLECTION을 반드시 빼야 합니다.
+//
 
-#if DEBUG
+#if DATA_COLLECTION
 import SwiftUI
 import CoreImage
 import Vision
@@ -119,6 +122,10 @@ struct DataCollectionPanel: View {
             Text("학습 데이터 수집")
                 .font(.headline)
                 .foregroundColor(.white)
+
+            Text("기록하는 동안 얼굴 사진이 이 기기에 저장되고, 내보낸 사진은 집중 감지 모델 학습에 쓰입니다. 찍히는 사람의 동의를 받아 주세요.")
+                .font(.caption)
+                .foregroundColor(.orange)
 
             TextField("수집 대상 (사람별로 다르게)", text: $collector.person)
                 .textFieldStyle(.roundedBorder)

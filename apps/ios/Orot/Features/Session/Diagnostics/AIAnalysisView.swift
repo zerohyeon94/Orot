@@ -96,7 +96,7 @@ struct AIAnalysisView: View {
 
                 StatusRow(debugInfo: viewModel.focusService.debugInfo)
 
-                #if DEBUG
+                #if DATA_COLLECTION
                 DataCollectionPanel(
                     collector: viewModel.trainingCollector,
                     cameraService: viewModel.cameraService
