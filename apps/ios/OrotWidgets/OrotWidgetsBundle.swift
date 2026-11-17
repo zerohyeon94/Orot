@@ -10,5 +10,6 @@ import WidgetKit
 struct OrotWidgetsBundle: WidgetBundle {
     var body: some Widget {
         SessionLiveActivity()
+        TodaySkyWidget()
     }
 }

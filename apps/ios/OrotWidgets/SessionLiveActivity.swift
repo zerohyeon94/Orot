@@ -13,7 +13,7 @@ import WidgetKit
 struct SessionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
-            LockScreenSessionView(context: context)
+            SessionPresentation(context: context)
                 .activityBackgroundTint(OrotColor.skyNight)
                 .activitySystemActionForegroundColor(OrotColor.textPrimary)
         } dynamicIsland: { context in
@@ -54,6 +54,70 @@ struct SessionLiveActivity: Widget {
     }
 }
 
+// MARK: - Presentation
+/// 충전 중 가로로 세우면(스탠바이) 전체 화면 배치를, 아니면 잠금 화면 배치를 씁니다.
+private struct SessionPresentation: View {
+    let context: ActivityViewContext<SessionActivityAttributes>
+    @Environment(\.isActivityFullscreen) private var isFullscreen
+
+    var body: some View {
+        if isFullscreen {
+            StandBySessionView(context: context)
+        } else {
+            LockScreenSessionView(context: context)
+        }
+    }
+}
+
+// MARK: - StandBy
+/// 가로 탁상시계처럼 남은 시간을 크게, 별과 지평선은 낮은 밝기로 둡니다.
+/// 야간 모드에서는 화면 전체가 빨간 단색이 되므로 크기·밝기 차이로만 읽혀도 되게 배치합니다.
+private struct StandBySessionView: View {
+    let context: ActivityViewContext<SessionActivityAttributes>
+
+    private var state: SessionActivityAttributes.ContentState { context.state }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .firstTextBaseline) {
+                PhaseLabel(state: state, subject: context.attributes.subject)
+                Spacer()
+                Text(state.mansionCaption)
+                    .font(OrotFont.regular(12))
+                    .foregroundStyle(OrotColor.textCaption)
+                    .lineLimit(1)
+            }
+
+            Spacer(minLength: 4)
+
+            HStack(alignment: .center, spacing: 16) {
+                SessionClockText(state: state, size: 96)
+                Spacer(minLength: 0)
+                FormingStarGlyph(formation: state.starFormation, magnitude: state.magnitude, complete: state.phase == .complete, size: 60)
+            }
+
+            Spacer(minLength: 4)
+
+            SessionProgress(state: state)
+
+            HStack(alignment: .bottom) {
+                Text(SessionFootnote.text(context))
+                    .font(OrotFont.regular(12))
+                    .foregroundStyle(OrotColor.textSecondary)
+                    .lineLimit(1)
+                Spacer(minLength: 12)
+                HorizonGlyph()
+                    .frame(width: 120, height: 20)
+                    .opacity(0.9)
+            }
+            .padding(.top, 10)
+        }
+        .padding(.horizontal, 24)
+        .padding(.vertical, 18)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
 // MARK: - Lock Screen
 private struct LockScreenSessionView: View {
     let context: ActivityViewContext<SessionActivityAttributes>
@@ -87,7 +151,7 @@ private struct LockScreenSessionView: View {
                 SessionProgress(state: state)
                     .padding(.top, 6)
 
-                Text(footnote)
+                Text(SessionFootnote.text(context))
                     .font(OrotFont.regular(12))
                     .foregroundStyle(OrotColor.textSecondary)
                     .lineLimit(1)
@@ -97,15 +161,19 @@ private struct LockScreenSessionView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 16)
     }
+}
 
-    private var footnote: String {
+/// 잠금 화면·스탠바이 아래쪽 한 줄
+private enum SessionFootnote {
+    static func text(_ context: ActivityViewContext<SessionActivityAttributes>) -> String {
+        let state = context.state
         switch state.phase {
         case .focusing:
-            return "\(context.attributes.targetMinutes)분 세션 · \(Self.time(state.endsAt))에 끝나요"
+            return "\(context.attributes.targetMinutes)분 세션 · \(time(state.endsAt))에 끝나요"
         case .paused:
             return "잠시 멈췄어요 · 별빛이 모이기를 기다리는 중"
         case .rest:
-            return "\(Self.time(state.endsAt))에 다음 집중이 시작돼요"
+            return "\(time(state.endsAt))에 다음 집중이 시작돼요"
         case .complete:
             return "\(state.magnitude)등급 별이 떴어요"
         }

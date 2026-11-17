@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02BB883BC0FD8FDC5E6A58C3 /* FocusSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF6629F0EBD9402556641D5 /* FocusSetupView.swift */; };
+		0B61856D6FE0CE227A2DA54B /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F304FD287860A6E05FC6C /* MoonPhase.swift */; };
+		0FFD50AF4C99E6E05FC03445 /* SkySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B039AC9AE44937BD5868E65 /* SkySnapshot.swift */; };
 		1226FE82B1E0217B4E8BD1E1 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20342AFDB6B7631425545D9 /* TimerViewModel.swift */; };
 		1448EC0A11B1DC21719D365A /* OrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FD567C9B320BC4D6D503E /* OrotApp.swift */; };
 		1554EC46B3707DC1F65CB294 /* FocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987F97DAD1561B85A7DE8BB /* FocusState.swift */; };
@@ -28,6 +30,7 @@
 		51797F94918D4F1B00AC9597 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5DC3EA32E87FFE49CB8A6D00 /* OFL.txt */; };
 		51999B965B6CD35CA356D39D /* OrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AF2FB6052845B6C93F2875 /* OrotTests.swift */; };
 		59969018B1DD5A9E33BC2A82 /* SessionRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EFC4F75A1A1A1A2FE544A /* SessionRestView.swift */; };
+		60DE61E27CA12089ABC8C134 /* SkySnapshotPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA8E287F3352FCA4D4447C9 /* SkySnapshotPublisher.swift */; };
 		62CBC70B4EFE8C963D205AC5 /* IBMPlexSansKR-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F49F192FFC2374293606F6D /* IBMPlexSansKR-Medium.ttf */; };
 		636515361E0E0D65507F1AA5 /* NightSkyLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A325C52ECFADD67363AFF /* NightSkyLayers.swift */; };
 		682D88C92A510E59BE780457 /* FocusSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C4501053B5F4EE897665D /* FocusSubject.swift */; };
@@ -41,8 +44,10 @@
 		8AC17F2B477D72FAF410ED5C /* SessionRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385CA6EE4A36CC4820814361 /* SessionRecordDetailView.swift */; };
 		8DB90834D39F0DD095AE82C1 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91801630604CF9163DD7891D /* SessionView.swift */; };
 		90667227C604990C1F147FF6 /* SessionActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F58B5C74BA2FBA893B7E20 /* SessionActivityAttributes.swift */; };
+		961F6780C81D507DFC9F45B1 /* TodaySkyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1153F66AA2F67A0B079764D /* TodaySkyWidget.swift */; };
 		9947ADDD567FCBF10EDA9153 /* OrotSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FE03D1164D6905B8C6A14A /* OrotSettings.swift */; };
 		9C268450CADA81B00F813ABE /* IBMPlexSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C92B3B661FFA54F5C94AF11 /* IBMPlexSansKR-Light.ttf */; };
+		9E6A4AD5B710CCC95BE4CF42 /* MoonPhaseIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACFDC7F0677A0FC3F5C337E /* MoonPhaseIcon.swift */; };
 		A1B2C3D4E5F60001A0000005 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002A0000005 /* SplashView.swift */; };
 		A54D07D3601981E436296D93 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F304FD287860A6E05FC6C /* MoonPhase.swift */; };
 		A6BAE43EDAF347A1498C1930 /* OrotWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410ED6726847EF5105DB201 /* OrotWidgetsBundle.swift */; };
@@ -55,6 +60,7 @@
 		C303881CB5A51A86B49F01A7 /* FocusSubjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE667FCE413FA830B958D0 /* FocusSubjectStore.swift */; };
 		C4D48DB9402886BF66EECDE1 /* SubjectManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7194C71A0DA3367D407EC857 /* SubjectManageView.swift */; };
 		C54EA6B76CF3BD6783B3705A /* TimeDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = E717B9ED705F3212746C684B /* TimeDial.swift */; };
+		CB00E993824DD1EF251890B4 /* SkySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B039AC9AE44937BD5868E65 /* SkySnapshot.swift */; };
 		CE8EC0408FEED6D9ABFCFF40 /* FaceAlignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFE8E7AC4E487514539C81B /* FaceAlignView.swift */; };
 		CF1B7C9A2F334954008F7AE9 /* FocusSense_default.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = CF1B7C992F334953008F7AE9 /* FocusSense_default.mlpackage */; };
 		CF1B7CA12F334B6A008F7AE9 /* MLFocusDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B7CA02F334B68008F7AE9 /* MLFocusDetectionService.swift */; };
@@ -143,6 +149,7 @@
 		4C7F304FD287860A6E05FC6C /* MoonPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
 		52F8ED1AFB647B0D28F77094 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59DECA718E5BB819CCDC273E /* OrotTokens.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrotTokens.swift; sourceTree = "<group>"; };
+		5AA8E287F3352FCA4D4447C9 /* SkySnapshotPublisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SkySnapshotPublisher.swift; sourceTree = "<group>"; };
 		5B683745D429F3C44A88F29E /* MansionDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MansionDetailView.swift; sourceTree = "<group>"; };
 		5B782B7E225CE2752A7616F4 /* RecordsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		5DC3EA32E87FFE49CB8A6D00 /* OFL.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = OFL.txt; sourceTree = "<group>"; };
@@ -156,6 +163,7 @@
 		70B0EF9E949F0FB8AE08624D /* SessionFocusContent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionFocusContent.swift; sourceTree = "<group>"; };
 		7194C71A0DA3367D407EC857 /* SubjectManageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SubjectManageView.swift; sourceTree = "<group>"; };
 		7ACFDC7F0677A0FC3F5C337E /* MoonPhaseIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoonPhaseIcon.swift; sourceTree = "<group>"; };
+		8B039AC9AE44937BD5868E65 /* SkySnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SkySnapshot.swift; sourceTree = "<group>"; };
 		8C92B3B661FFA54F5C94AF11 /* IBMPlexSansKR-Light.ttf */ = {isa = PBXFileReference; includeInIndex = 1; path = "IBMPlexSansKR-Light.ttf"; sourceTree = "<group>"; };
 		91801630604CF9163DD7891D /* SessionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		976886F95997AAECBD8A03AE /* StartCheckSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartCheckSheet.swift; sourceTree = "<group>"; };
@@ -197,12 +205,14 @@
 		E0622D53CA2BF2994F2DA9AD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E0E788F022BFECB4F9DD8D77 /* SkyMapView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SkyMapView.swift; sourceTree = "<group>"; };
 		E399F548A5E3ED1829E26BAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E4125AC8D06424B1487AAA4E /* OrotWidgets.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = OrotWidgets.entitlements; sourceTree = "<group>"; };
 		E717B9ED705F3212746C684B /* TimeDial.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeDial.swift; sourceTree = "<group>"; };
 		E7FFC6D1E4A841D16F92C70E /* FocusDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusDetectionService.swift; sourceTree = "<group>"; };
 		E82FD567C9B320BC4D6D503E /* OrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrotApp.swift; sourceTree = "<group>"; };
 		EB26B1453B90A9F0F0BD92DF /* ExceptionNotices.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExceptionNotices.swift; sourceTree = "<group>"; };
 		EC1C4501053B5F4EE897665D /* FocusSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FocusSubject.swift; sourceTree = "<group>"; };
 		EE3098C362947832E33F36E0 /* SkyCompleteView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SkyCompleteView.swift; sourceTree = "<group>"; };
+		F1153F66AA2F67A0B079764D /* TodaySkyWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TodaySkyWidget.swift; sourceTree = "<group>"; };
 		F30345B5C150B4782955450B /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		FA9EFC4F75A1A1A1A2FE544A /* SessionRestView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionRestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,6 +399,7 @@
 				87903AFE081007C1E17ADEEC /* Notifications */,
 				9948EB0E50985E94CEE42EBF /* LiveActivities */,
 				D3FC90E07505F838F4DDF09F /* LiveActivity */,
+				D0619A70C79C6064FDA591DF /* Widgets */,
 			);
 			name = Infrastructure;
 			path = Infrastructure;
@@ -615,6 +626,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		D0619A70C79C6064FDA591DF /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				5AA8E287F3352FCA4D4447C9 /* SkySnapshotPublisher.swift */,
+			);
+			name = Widgets;
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		D3FC90E07505F838F4DDF09F /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +682,8 @@
 				A410ED6726847EF5105DB201 /* OrotWidgetsBundle.swift */,
 				6F79E4FC212FDBF19E2B76C2 /* SessionLiveActivity.swift */,
 				A1E956EF38140E91C974709B /* Info.plist */,
+				F1153F66AA2F67A0B079764D /* TodaySkyWidget.swift */,
+				E4125AC8D06424B1487AAA4E /* OrotWidgets.entitlements */,
 			);
 			name = OrotWidgets;
 			path = OrotWidgets;
@@ -685,6 +707,7 @@
 			isa = PBXGroup;
 			children = (
 				14F58B5C74BA2FBA893B7E20 /* SessionActivityAttributes.swift */,
+				8B039AC9AE44937BD5868E65 /* SkySnapshot.swift */,
 			);
 			name = Shared;
 			path = Shared;
@@ -855,6 +878,10 @@
 				EBC27350B1B3D2B4FDC239AB /* SessionLiveActivity.swift in Sources */,
 				90667227C604990C1F147FF6 /* SessionActivityAttributes.swift in Sources */,
 				F02BB9AED356BE0A49896BEA /* OrotTokens.swift in Sources */,
+				961F6780C81D507DFC9F45B1 /* TodaySkyWidget.swift in Sources */,
+				0FFD50AF4C99E6E05FC03445 /* SkySnapshot.swift in Sources */,
+				0B61856D6FE0CE227A2DA54B /* MoonPhase.swift in Sources */,
+				9E6A4AD5B710CCC95BE4CF42 /* MoonPhaseIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,6 +955,8 @@
 				C4D48DB9402886BF66EECDE1 /* SubjectManageView.swift in Sources */,
 				E2A8E561EC88177B5B9AE401 /* SessionActivityAttributes.swift in Sources */,
 				4ED8023F81BB72BAF62E1832 /* LiveActivityService.swift in Sources */,
+				CB00E993824DD1EF251890B4 /* SkySnapshot.swift in Sources */,
+				60DE61E27CA12089ABC8C134 /* SkySnapshotPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -977,6 +1006,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = OrotWidgets/OrotWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G6N83PM9C;
@@ -1203,6 +1233,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = OrotWidgets/OrotWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5G6N83PM9C;

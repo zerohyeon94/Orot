@@ -2,7 +2,7 @@
 
 > 작성일: 2026-11-03
 > 상태: 컨셉·디자인 방향 확정, 일부 항목 확정 대기 (14장 참고)
-> 저장소: github.com/zerohyeon94/FocusSense (iOS / ML / Web 모노레포)
+> 저장소: github.com/zerohyeon94/orot (iOS / ML / Web 모노레포)
 
 ---
 
