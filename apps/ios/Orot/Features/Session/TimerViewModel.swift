@@ -330,6 +330,9 @@ final class TimerViewModel: ObservableObject {
         timer?.invalidate()
         notificationService.cancelAll()
         cameraService.stopSession()
+        #if DATA_COLLECTION
+        trainingCollector.endTimedCapture()
+        #endif
         timerState = .idle
         session.endTime = Date()
 
@@ -371,6 +374,9 @@ final class TimerViewModel: ObservableObject {
         timer?.invalidate()
         notificationService.cancelAll()
         cameraService.stopSession()
+        #if DATA_COLLECTION
+        trainingCollector.endTimedCapture()
+        #endif
         if phase == .focusing, let session = currentSession, session.endTime == nil, elapsedTime >= 60 {
             session.endTime = Date()
             sessionStore.saveSession(session)
@@ -405,6 +411,11 @@ final class TimerViewModel: ObservableObject {
         } else {
             cameraService.stopSession()
         }
+        #if DATA_COLLECTION
+        if isDetectionEnabled && UserDefaults.standard.bool(forKey: TrainingDataCollector.timedCaptureKey) {
+            trainingCollector.beginTimedCapture()
+        }
+        #endif
         UIApplication.shared.isIdleTimerDisabled = OrotSettings.current.keepAwake
         startTicking()
         notificationService.scheduleSessionEnd(after: targetDuration, minutes: targetMinutes)

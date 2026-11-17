@@ -14,6 +14,13 @@ struct StartCheckSheet: View {
     let subjectName: String
     let onStart: (_ detection: Bool) -> Void
 
+    #if DATA_COLLECTION
+    @AppStorage(TrainingDataCollector.timedCaptureKey) private var timedCapture = false
+    private let sheetHeight: CGFloat = 470 + 56
+    #else
+    private let sheetHeight: CGFloat = 470
+    #endif
+
     private var faceDetected: Bool { viewModel.currentFocusState.isFaceDetected }
 
     var body: some View {
@@ -43,6 +50,10 @@ struct StartCheckSheet: View {
             }
             .padding(.top, 16)
 
+            #if DATA_COLLECTION
+            timedCaptureToggle.padding(.top, 14)
+            #endif
+
             Spacer(minLength: 16)
 
             VStack(spacing: 4) {
@@ -58,7 +69,7 @@ struct StartCheckSheet: View {
         }
         .padding(.horizontal, 24)
         .background(OrotColor.surfaceRaised.ignoresSafeArea())
-        .presentationDetents([.height(470)])
+        .presentationDetents([.height(sheetHeight)])
         .presentationDragIndicator(.visible)
         .presentationBackground(OrotColor.surfaceRaised)
         .onAppear { viewModel.startPreview() }
@@ -100,6 +111,23 @@ struct StartCheckSheet: View {
         .padding(16)
         .overlay(RoundedRectangle(cornerRadius: OrotRadius.md).strokeBorder(OrotColor.hairline))
     }
+
+    #if DATA_COLLECTION
+    // MARK: - Timed Capture Toggle
+    private var timedCaptureToggle: some View {
+        Toggle(isOn: $timedCapture) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("학습용 사진 모으기")
+                    .font(OrotFont.regular(14))
+                    .foregroundStyle(OrotColor.textPrimary)
+                Text("1분마다 1장 · 소리 없이 · 끝나고 직접 골라요")
+                    .font(OrotFont.caption)
+                    .foregroundStyle(OrotColor.textCaption)
+            }
+        }
+        .tint(OrotColor.accent)
+    }
+    #endif
 
     private func check(_ title: String, ok: Bool) -> some View {
         HStack(spacing: 8) {
